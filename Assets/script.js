@@ -1,4 +1,4 @@
-//Begin
+//Init
     //->addeventlistener on click kicks the timer and pops the first question, adding content to heading(question) and list items(choices)
 
 // Function pop1
@@ -22,20 +22,30 @@ let response3 = document.getElementById("response3");
 let count = document.getElementById("count");
 let score = document.getElementById("score");
 
-
-
 function start() {
-let timeLeft = 60;
+    let timeLeft = 60;
+    
+    let num = setInterval(countdown, 1000); 
+    
+    function countdown() {
+    
+        timeLeft--;
+      count.textContent = timeLeft;
+     if(timeLeft === 0)
+      clearInterval(num);
+    }
+    }
 
-let num = setInterval(countdown, 1000); 
-
-function countdown() {
-
-	timeLeft--;
-  count.textContent = timeLeft;
- if(timeLeft === 0)
-  clearInterval(num);
-}
+function init() {
+	document.getElementById("begin").addEventListener("click", function() {
+  
+  questions.textContent = "If you apply slice(1, 4) to a variable assigned the string 'banana' what is the result?";
+  response1.textContent = "Is a fruit";
+  response2.textContent = "bana";
+  response3.textContent = "ana";
+  
+  
+  });
 }
 
 
@@ -59,6 +69,5 @@ function pop3() {
 
 
 document.getElementById("begin").addEventListener("click", start);
-
-
+init();
 
