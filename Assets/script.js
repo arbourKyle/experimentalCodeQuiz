@@ -22,8 +22,11 @@ let response3 = document.getElementById("response3");
 let count = document.getElementById("count");
 let score = document.getElementById("score");
 
+let timeLeft = 60;
+
+
 function start() {
-    let timeLeft = 60;
+    
     
     let num = setInterval(countdown, 1000); 
     
@@ -44,7 +47,7 @@ function init() {
   response2.textContent = "bana";
   response3.textContent = "ana";
   
-  
+  pop1();
   });
 }
 
@@ -56,8 +59,15 @@ function begin() {
 
 
 function pop1() {
-
-}
+    response1.addEventListener("click", function() {
+                
+          while(timeLeft >= 0){
+          timeLeft = timeLeft -10;
+          break;
+        }
+        
+      });
+     }
 
 function pop2() {
 
