@@ -24,6 +24,8 @@ let response2 = document.getElementById("response2");
 let response3 = document.getElementById("response3");
 let count = document.getElementById("count");
 let score = document.getElementById("score");
+let name = document.getElementById("name");
+let submit = document.getElementById("submit");
 
 document.getElementById("name").style.display = "none";
 
@@ -55,7 +57,7 @@ let x = 0;
 
 function stopTimer() {
    if(timeLeft === 0) {
-    let timeLeft = x;
+    clearInterval();
    }
    
 }
@@ -96,18 +98,17 @@ function init() {
         pop1();
         pop2();
         pop3();
-        stopTimer();
+        
        });
     }
 
 function pop1() {
     response1.addEventListener("click", function() {
                 
-        while(timeLeft > 0){
-        timeLeft = timeLeft -10;
-        break;
+        if(timeLeft > 0){
+        timeLeft = timeLeft - 10;
         }
-
+        
         secondSet();
         stopTimer();
       });
@@ -116,12 +117,10 @@ function pop1() {
 function pop2() {
     response2.addEventListener("click", function() {
                     
-        while(timeLeft > 0) {
-        timeLeft = timeLeft-10;
-        break;
+        if(timeLeft > 0) {
+        timeLeft = timeLeft - 10;
         }
-        
-        
+                
         secondSet();
         stopTimer();
        });
@@ -130,16 +129,9 @@ function pop2() {
 function pop3() {
     response3.addEventListener("click", function() {
                     
-        if(timeLeft > 0) {
-        timeLeft++;
-        }
-        else {
-        return;
-        }
-
         document.getElementById("score").textContent = i++;
         secondSet();
-        stopTimer();
+        
        });
     }
 
@@ -154,18 +146,12 @@ function secondSet() {
             
         pop1a();
         pop2a();
-        stopTimer();
     }
             
      
 function pop1a() {
     response1.addEventListener("click", function() {
                 
-        if(timeLeft > 0) {
-        timeLeft++;
-        return;
-        }
-
         document.getElementById("score").textContent = i++;
         thirdSet();
         stopTimer();
@@ -175,12 +161,10 @@ function pop1a() {
 function pop2a() {
     response2.addEventListener("click", function() {
                 
-        while(timeLeft > 0) {
-        timeLeft = timeLeft -10;
-        break;
+        if(timeLeft > 0) {
+        timeLeft = timeLeft - 10;
         }
         
-
         thirdSet();
         stopTimer();
        });
@@ -200,17 +184,11 @@ function thirdSet() {
         pop1b();
         pop2b();
         pop3b();
-        stopTimer();
     }
 
 
 function pop1b() {
     response1.addEventListener("click", function() {
-                
-        if(timeLeft > 0){
-        timeLeft++;
-        return;
-        }
         
         document.getElementById("score").textContent = i++;
         stats();
@@ -221,11 +199,10 @@ function pop1b() {
 function pop2b() {
     response2.addEventListener("click", function() {
                     
-        while(timeLeft > 0) {
-        timeLeft = timeLeft -10;
-        break;
+        if(timeLeft > 0) {
+        timeLeft = timeLeft - 10;
         }
-                    
+                   
         stats();
         stopTimer();          
        });
@@ -234,9 +211,8 @@ function pop2b() {
 function pop3b() {
     response3.addEventListener("click", function() {
             
-        while(timeLeft > 0) {
-        timeLeft = timeLeft -10;
-        break;
+        if(timeLeft > 0) {
+        timeLeft = timeLeft - 10;
         }
                             
         stats();
@@ -251,12 +227,39 @@ function stats() {
         var x = document.getElementById("name").value;
         document.getElementById("name").innerHTML = x;
         document.getElementById("name").style.display = "block";
+        
         document.getElementById("questions").textContent = "Please enter your name";
     
         document.getElementById("response1").style.display = "none";
         document.getElementById("response2").style.display = "none";
         document.getElementById("response3").style.display = "none";
+       
+       
     }
+
+/* function enterName() {
+    document.getElementById("submit").addEventListener("click", function() { 
+    
+        let finalScore = {
+        nameInput: nameInput.value,
+        score: score.value
+        }
+
+        localStorage.setItem("finalScore", JSON.stringify(finalScore));
+        displayMessage();
+        });
+    } */
+
+
+/* function displayMessage() {
+
+    let retrieved = JSON.parse(localStorage.getItem("finalScore"));
+    if (retrieved !== null) {
+        document.querySelector("questions").textContent = finalScore.nameInput + 
+      " you scored " + finalScore.score;
+    }
+        
+} */
    
           
 
