@@ -51,10 +51,8 @@ function questionOne() {
     response2.textContent = "bana";
     response3.textContent = "Is a fruit";
 
-response1.addEventListener("click", function(event){
-    event.stopPropagation();
-
-	
+response1.addEventListener("click", function(){
+    	
     document.getElementById("score").textContent = i++;
     questionTwo();
 });
