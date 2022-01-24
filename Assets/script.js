@@ -10,8 +10,8 @@
     document.getElementById("name").style.display = "none";
     
     let timeLeft = 60;
-    let i = 1;
-    let x = 
+    let i = 0;
+    let x = 0;
 
 function display(){
     document.getElementById("questions").hidden = false;
@@ -53,7 +53,7 @@ function questionOne() {
 
 response1.addEventListener("click", function(){
     	
-    document.getElementById("score").textContent = i++;
+    document.getElementById("score").textContent = i += 1;
     questionTwo();
 });
 
@@ -84,12 +84,13 @@ function questionTwo() {
     response3.textContent = "Justify-content";
 
 response1.addEventListener("click", function(event){
-    event.stopPropagation()
-	
+    	
     if(timeLeft > 10) {
     timeLeft = timeLeft - 10;
     }
+    
     questionThree();
+    
 });
 
 response2.addEventListener("click", function(){
@@ -102,7 +103,7 @@ response2.addEventListener("click", function(){
 
 response3.addEventListener("click", function(){
     
-    document.getElementById("score").textContent = i++;
+    document.getElementById("score").textContent = i += 1;
     questionThree();
 });
     display();
@@ -119,7 +120,7 @@ function questionThree() {
 
 response1.addEventListener("click", function(){
 	
-    document.getElementById("score").textContent = i++;
+    document.getElementById("score").textContent = i += 1;
 });
 
 response2.addEventListener("click", function(){
