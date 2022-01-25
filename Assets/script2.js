@@ -4,27 +4,21 @@ let response2 = document.getElementById("response2");
 let response3 = document.getElementById("response3");
 let count = document.getElementById("count");
 let score = document.getElementById("score");
-let askName = document.getElementById("name");
+let name = document.getElementById("name");
 let submit = document.getElementById("submit");
-let buttonClick = document.getElementById("buttons");
 
 document.getElementById("name").style.display = "none";
 
 let timeLeft = 60;
 let i = 1;
+let x = 0;
 
-let questionArr = [questionTwo, questionThree];
-
-
-// function nextQ(evt) 
-
-buttonClick.addEventListener('click', function(event) {
-
-    if (event.target.ul != undefined) { // if the attribute exists...
-      questionTwo();
-    }
-
-  });
+function display(){
+document.getElementById("questions").hidden = false;
+document.getElementById("response1").hidden = false;
+document.getElementById("response2").hidden = false;
+document.getElementById("response3").hidden = false;
+}
 
 
 //Kick the timer and call the first question
@@ -57,10 +51,12 @@ function questionOne() {
     response2.textContent = "bana";
     response3.textContent = "Is a fruit";
 
+
+
 response1.addEventListener("click", function(){
     
     document.getElementById("score").textContent = i++;
-    
+
 });
 
 response2.addEventListener("click", function(){
@@ -68,7 +64,6 @@ response2.addEventListener("click", function(){
     if(timeLeft > 10) {
     timeLeft = timeLeft - 10;
     }
-    
 
 });
 
@@ -77,98 +72,75 @@ response3.addEventListener("click", function(){
     if(timeLeft > 10) {
     timeLeft = timeLeft - 10;
     }
-            
+    
+    questionTwo();
 });
-   
+    display();
 }
+
 
 function questionTwo() {
 
-    questions.textContent = "Which property moves items across the main axis of a CSS grid or flexbox?";
-    response1.textContent = "Padding-bottom";
-    response2.textContent = "Align-items";
-    response3.textContent = "Justify-content";
+questions.textContent = "Which property moves items across the main axis of a CSS grid or flexbox?";
+response1.textContent = "Padding-bottom";
+response2.textContent = "Align-items";
+response3.textContent = "Justify-content";
 
 response1.addEventListener("click", function(){
 
 
-    if(timeLeft > 10) {
-    timeLeft = timeLeft - 10;
-    }
-    
+if(timeLeft > 10) {
+timeLeft = timeLeft - 10;
+}
+questionThree();
 });
 
 response2.addEventListener("click", function(){
     
-    if(timeLeft > 10) {
-    timeLeft = timeLeft - 10;
-    }
-    
+if(timeLeft > 10) {
+timeLeft = timeLeft - 10;
+}
+questionThree();
 });
 
 response3.addEventListener("click", function(){
 
-    document.getElementById("score").textContent = i++;
+document.getElementById("score").textContent = i++;
+questionThree();
 });
-        
+display();
 }
-
-    
 
 function questionThree() {
 
-    document.getElementById("response3").style.display = "none";
+document.getElementById("response3").hidden = true;
 
-    questions.textContent = "True or False - var x; !var?";
-    response1.textContent = "True";
-    response2.textContent = "False";
+questions.textContent = "True or False - var x; !var?";
+response1.textContent = "True";
+response2.textContent = "False";
 
 
 response1.addEventListener("click", function(){
 
-    document.getElementById("score").textContent = i++;
+document.getElementById("score").textContent = i++;
 });
 
 response2.addEventListener("click", function(){
     
-    if(timeLeft > 10) {
-    timeLeft = timeLeft - 10;
-    }
+if(timeLeft > 10) {
+timeLeft = timeLeft - 10;
+}
 });
 
 response3.addEventListener("click", function(){
 
-    if(timeLeft > 10) {
-    timeLeft = timeLeft - 10;
-    }
+if(timeLeft > 10) {
+timeLeft = timeLeft - 10;
+}
 });
 
-    stats();
+
+// questionTwo();
 }
-
-function stats() {
-
-    document.getElementById("name").style.visibility = "visible";
-
-    let inputName = {
-        askName: askName.value,
-        score: score.value,
-        
-    };
-      
-      localStorage.setItem("inputName", JSON.stringify(inputName));
-      showStats();
-}
-
-function showStats() {
-
-    let inputName = JSON.parse(localStorage.getItem("inputName"));
-    if (inputName !== null) {
-      document.querySelector("name").textContent = inputName.askName + 
-      " your score is " + inputName.score;
-    }
-  }
-
-
 
 init();

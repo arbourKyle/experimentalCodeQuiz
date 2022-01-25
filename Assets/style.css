@@ -33,15 +33,21 @@ body {
     
 }
   
-  .questions {
+.questions {
     display: grid;
     grid-template-columns: 1fr;
     justify-items: center;
-  }
+}
   
-  .questions > ul {
+.questions > ul {
     align-self: center;
     padding-right: 40px;
-  }
+}
+
+#questions > button {
+  display: block;
+  justify-self: center;
+  align-self: center;
+}
   
   
