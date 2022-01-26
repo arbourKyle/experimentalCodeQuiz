@@ -49,5 +49,8 @@ body {
   justify-self: center;
   align-self: center;
 }
-  
+
+.pointer {cursor: pointer;}
+
+.progress {cursor: progress;}
   

@@ -3,27 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
 <div class="questions">
   
   <h1 id="questions">Code Quiz!</h1>
-  <div  >
-  <input id="name" type="text"> 
+  <div id="hideInput" >
+  <input id="name" type="text">
+  <input id="submit" type="submit">
 </div>
-  <ul id="buttons" style="list-style-type:none;">
-    <li>
-    <button class="responses" id="response1">Ready</button>
+<div id="qSetDiv">
+  <ul id="qSetUl" style="list-style-type:none;">
+    <li id="response1" type="button" value="1" data-counter class="pointer">
+      Ready
      </li>
-    <li>
-    <button class="responses" id="response2">Set</button>
+    <li id="response2" type="button" value="1" data-counter class="pointer">
+      Set
     </li>
-    <li>
-    <button class="responses" id="response3">...</button>
+    <li id="response3" type="button" value="1" data-counter class="pointer">
+      ...
     </li>
   </ul>
+</div>
   
   
   
@@ -39,9 +42,9 @@
     <button id = "begin" class="begin">GO</button>
    </div>
    
-   <h2 class="right">Score:<span id="score">_</span>/3 </h2>
+   <h2 class="right">Counter: <span id="score">_</span>/3 </h2>
  
 </div>
-  <script src="assets/script.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
