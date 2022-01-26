@@ -7,4 +7,4 @@ A fun quiz to test your skills
 
 visit the page https://arbourkyle.github.io/kylesCodeQuiz/
 
-![](Assets/img/codeQuizScreenshot.jpg)
+![](assets/img/codeQuizScreenshot.jpg)
